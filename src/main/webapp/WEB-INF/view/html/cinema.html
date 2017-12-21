@@ -1,0 +1,75 @@
+<h3 style="margin-left:100px;">Seat List</h3>
+<div class="alert alert-info" style="width:400px;margin-left:100px;" ng-show="seats.length == 0">
+    No cars found
+</div>
+<div style="display: inline-flex; padding-left: 100px;">
+    <!-- <table class="table table-condensed" style="width:250px; text-align: center; float: left"
+           ng-show="seats.length > 0">
+        <thead>
+        <tr>
+            <th style="text-align: center;">Row</th>
+            <th style="text-align: center;">Seat Number</th>
+            <th style="text-align: center;">Reserved</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="seat in seats">
+            <td>{{seat.row}}</td>
+            <td>{{seat.number}}</td>
+            <td style="width:70px;text-align:center;" ng-if="seat.reservedBy == null">
+                <button class="btn btn-mini btn-danger" ng-click="reserveSeat(seat)">Reserve</button>
+            </td>
+            <td ng-if="seat.reservedBy != null">{{seat.reservedBy.fname}}</td>
+        </tr>
+        </tbody>
+    </table>  -->
+    <table class="table table-condensed" style="
+width: 100%;
+text-align: center;
+left: 30px;
+right: 30px;
+position: relative;
+top: 30px;"
+           ng-show="seats.length > 0">
+        <thead>
+        <tr>
+            <th style="text-align: center;">Row</th>
+            <th colspan="{{rows[0].seats.length}}" style="text-align: center;">Seat Number</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in rows">
+            <td style="width: 30px;">
+                {{row.title}}
+            </td>
+            <td ng-if="$parent.$index < rows.length - 2" ng-repeat="seat in row.seats" style="width: 50px; height: 50px"
+                ng-init="hover = false"
+                ng-class="{
+                      'cell-green': !seat.reserved && !hover,
+                      'cell-pink': seat.reserved && !hover,
+                      'cell-hovered ': hover,
+                    }"
+                ng-mouseenter="hover = !seat.reserved"
+                ng-mouseleave="hover = false"
+                ng-click="reserveSeat(seat) ">
+                {{seat.number}}
+            </td>
+            <td ng-if="$parent.$index >= rows.length - 2 && $index % 2 == 0"
+                ng-repeat="seat in row.seats"
+                style="width: 100px; height: 50px"
+                colspan="2"
+                ng-init="hover = false"
+                ng-class="{
+                      'cell-green': !seat.reserved && !hover,
+                      'cell-pink': seat.reserved && !hover,
+                      'cell-hovered ': hover,
+                    }"
+                ng-mouseenter="hover = !seat.reserved"
+                ng-mouseleave="hover = false"
+                ng-click="reserveSeat(seat) ">
+                {{seat.number}}, {{seat.number + 1}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

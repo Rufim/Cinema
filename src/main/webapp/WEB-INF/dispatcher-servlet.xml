@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- DispatcherServlet Context: определяет настройки одного сервлета; бины,
+		которые доступны только ему -->
+    <mvc:annotation-driven/>
+    <context:component-scan base-package="myapp.web"/>
+    <context:component-scan base-package="myapp.validator"/>
+
+    <mvc:resources mapping="/static/**" location="/static/"/>
+    <!-- Отображение видов на jsp-файлы -->
+    <bean id="jspViewResolver" class="myapp.util.SmartInternalResourceViewResolver"
+          p:viewClass="org.springframework.web.servlet.view.JstlView"
+          p:cache="true"
+          p:prefix="/WEB-INF/view/jsp/"
+          p:suffix=".jsp"/>
+    <!-- Отображение видов на html-файлы    -->
+    <bean id="htmlViewResolver" class="myapp.util.SmartInternalResourceViewResolver"
+          p:cache="true"
+          p:prefix="/WEB-INF/view/html/"
+          p:suffix=".html"/>
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver"
+          p:order="0"
+          p:contentNegotiationManager-ref="contentNegotiationManager">
+        <property name="defaultViews">
+            <list>
+                <ref bean="jsonView"/>
+            </list>
+        </property>
+        <property name="viewResolvers">
+            <list>
+                <ref bean="jspViewResolver"/>
+                <ref bean="htmlViewResolver"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="favorPathExtension" value="true"/>
+        <property name="ignoreAcceptHeader" value="true"/>
+        <property name="favorParameter" value="true"/>
+        <property name="parameterName" value="mediaType"/>
+        <property name="defaultContentType" value="text/html"/>
+        <property name="mediaTypes">
+            <map>
+                <entry key="json" value="application/json"/>
+                <entry key="html" value="text/html"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"
+          p:prefixJson="true" p:contentType="application/json;charset=UTF-8" p:disableCaching="false"/>
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+          p:maxUploadSize="102400"/>
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
+          p:basename="classpath:messages"
+          p:defaultEncoding="windows-1251"/>
+    <bean id="byteArrayMessageConverter" class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+</beans>

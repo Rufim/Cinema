@@ -1,0 +1,259 @@
+/*
+    Document   : myStyle
+    Created on : 04.02.2012, 4:36:12
+    Author     : Rufim
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+html, body {
+    -moz-font-feature-settings: normal;
+    -moz-font-language-override: normal;
+    -x-system-font: none;
+    background: #020202 url("../images/bg.jpg") no-repeat scroll 50% 0;
+    background-clip: border-box;
+    background-origin: padding-box;
+    background-size: auto auto;
+    color: #68727B;
+    font-family: "Trebuchet MS",Arial,sans-serif;
+    font-size: 13px;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1.25;
+    margin: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+}
+
+.label {
+    color: #68727B;
+    display: block;
+    font-size: 11px;
+    padding-bottom: 2px;
+    text-transform: uppercase;
+}
+
+#left {
+    float: left;
+}
+
+#form .input {
+    width: 95%;
+}
+#form p {
+    margin-bottom: 80px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+}
+
+
+.input:hover {
+    background: #FFFFFF none repeat scroll 0 0;
+    background-clip: border-box;
+    background-origin: padding-box;
+    background-size: auto auto;
+}
+
+.label {
+    color: #68727B;
+    display: block;
+    font-size: 11px;
+    padding-bottom: 2px;
+    text-transform: uppercase;
+}
+
+.border{
+    border: #68727B 2px solid;
+    color: #68727B;
+}
+
+[type="text"], [type="password"] {
+    -moz-appearance: textfield;
+    border-top: 2px inset threedface;
+    border-bottom: 2px inset threedface;
+    border-left-color-value: threedface;
+    border-left-style-value: inset;
+    border-left-width-value: 2px;
+    border-right-color-value: threedface;
+    border-right-style-value: inset;
+    border-right-width-value: 2px;
+    cursor: text;
+    letter-spacing: normal;
+    line-height: normal !important;
+    padding: 1px 0;
+    text-align: start;
+    text-indent: 0;
+    text-rendering: optimizelegibility;
+    text-shadow: none;
+    text-transform: none;
+    word-spacing: normal;
+    background: #FFFFFF url("../images/input-bg.gif") repeat-x scroll 0 0;
+    border-top: 1px solid #C0C0C0;
+    border-bottom: 1px solid #C0C0C0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left-color-value: #C0C0C0;
+    border-left-style-value: solid;
+    border-left-width-value: 1px;
+    border-right-color-value: #C0C0C0;
+    border-right-style-value: solid;
+    border-right-width-value: 1px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-family: "Lucida Sans Unicode","Lucida Grande","Arial",sans-serif;
+    font-size: 14px;
+}
+
+.input{
+    width: 300px;
+    padding: 7px;
+}
+
+.inputError{
+    width: 300px;
+    padding: 7px;
+    background-color: #ffEEEE;
+}
+
+.ui-button, .ui-cancel {
+    text-decoration: none;
+    cursor: pointer;
+    font-family: "Lucida Sans Unicode","Lucida Grande",sans-serif;
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 6px 60px;
+    color: #f7f7f7;
+    background-color: #3e71a8;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-right-color: #3c6fa3;
+    border-left-color: #94b9de;
+    border-bottom-color: #3c6fa3;
+    border-top-color: #94b9de;
+    border-radius: 5px;
+    -moz-appearance: button;
+    margin-left: 20px;
+    margin-top: 5px;
+    text-shadow: none;
+}
+
+
+.ui-button:hover {
+    background-color: rgba(90, 166, 212, 0.89);
+}
+
+
+.ui-button:active {
+    background-color: rgba(90, 166, 212, 0.89);
+    border-right-color: #94b9de;
+    border-left-color: #3c6fa3;
+    border-bottom-color: #94b9de;
+    border-top-color: #3c6fa3;
+}
+
+span {
+    -moz-text-blink: none;
+    -moz-text-decoration-line: none;
+    -moz-text-decoration-style: solid;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Lucida Sans Unicode","Lucida Grande",sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    height: 38px;
+    line-height: 38px;
+    outline: -moz-use-text-color none medium;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+
+.error {
+    color: #000;
+    background-color: #ffEEEE;
+    border: 1px solid #ff0000;
+    padding: 3px;
+    text-transform: none;
+}
+
+.success {
+    color: #000;
+    background-color: #EEffEE;
+    border: 1px solid #00ff00;
+    padding: 3px;
+    text-transform: none;
+}
+
+.errorblock {
+    color: #000;
+    background-color: #ffEEEE;
+    border: 3px solid #ff0000;
+    padding: 8px;
+    margin: 16px;
+}
+
+.my-fieldset {
+    color: #68727B;
+    margin-left: 100px;
+    margin-top: 100px;
+    width: 500px;
+    padding: 60px 60px;
+    border: solid #68727B;
+    border-right-style: none;
+    border-bottom-style: none;
+    -moz-border-radius: 64px 192px 0px 64px;
+    -webkit-border-radius: 64px 192px 0px 64px;
+    border-radius: 64px 192px 0px 64px;
+
+}
+
+.menu-fieldset {
+    margin-top: 10px;
+    padding: 10px 100px 0px 30px;
+}
+
+.menu-fieldset ul {
+    white-space : nowrap;
+    display: inline;
+    margin-left: -50px;
+    margin-top: 20px;
+}
+
+.my-fieldset legend {
+    font-size: 16px;
+    border-style: none;
+    color: inherit;
+    margin-bottom: 0px;
+    width: auto;
+    padding: 0 10px;
+}
+
+.cell-pink {
+    background-color : pink;
+}
+
+.cell-green {
+    background-color: #98FB98;
+}
+
+.cell-hovered {
+    background-color: #fbfabe;
+}
+
+.cell-clicked {
+    background-color: #fffc73;
+}
+
+
+
+
